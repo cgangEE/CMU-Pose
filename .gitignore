@@ -1,0 +1,15 @@
+*.pyc
+.ipynb_checkpoints
+experiments/*
+data/*
+output/*
+log_*
+*model
+*jpg
+*png
+*zip
+*swp
+*json
+*pkl
+*so
+*state

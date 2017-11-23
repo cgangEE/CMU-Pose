@@ -1,0 +1,80 @@
+
+{
+
+
+u'isValidation': 0.0, 
+
+u'numOtherPeople': 0.0, 
+u'people_index': 1.0, 
+
+u'annolist_index': 18861.0, 
+
+
+u'num_keypoints_other': {u'_ArrayType_': u'double', u'_ArraySize_': [0, 0], u'_ArrayData_': None}, 
+u'num_keypoints': 17.0, 
+
+u'joint_others': [], 
+u'joint_self': [[169.0, 151.0, 1.0], [172.0, 147.0, 1.0], [165.0, 148.0, 1.0], 
+[184.0, 151.0, 1.0], [160.0, 157.0, 0.0], [189.0, 172.0, 1.0], 
+[150.0, 167.0, 0.0], [196.0, 193.0, 1.0], [118.0, 172.0, 1.0], 
+[162.0, 200.0, 1.0], [101.0, 141.0, 1.0], [183.0, 211.0, 1.0], 
+[156.0, 208.0, 1.0], [202.0, 167.0, 0.0], [130.0, 189.0, 1.0], 
+[192.0, 222.0, 0.0], [174.0, 208.0, 1.0]], 
+
+
+u'img_width': 390.0, 
+u'img_height': 640.0, 
+
+u'dataset': u'COCO', 
+u'image_id': 244365.0, 
+
+u'objpos_other': {u'_ArrayType_': u'double', u'_ArraySize_': [0, 0], u'_ArrayData_': None}, 
+u'objpos': [147.835, 173.215], 
+
+u'segment_area_other': {u'_ArrayType_': u'double', u'_ArraySize_': [0, 0], u'_ArrayData_': None}, 
+u'segment_area': 4922.03, 
+
+u'scale_provided_other': {u'_ArrayType_': u'double', u'_ArraySize_': [0, 0], u'_ArrayData_': None}, 
+u'scale_provided': 0.277, 
+
+
+u'img_paths': u'train2014/COCO_train2014_000000244365.jpg', 
+
+u'bbox_other': {u'_ArrayType_': u'double', u'_ArraySize_': [0, 0], u'_ArrayData_': None}, 
+u'bbox': [90.43, 122.25, 114.81, 101.93]}
+
+
+
+
+{
+u'segment_area': 1754.818, 
+u'segment_area_other': 1349.982, 
+
+u'num_keypoints': 13.0, 
+u'num_keypoints_other': 11.0, 
+
+u'isValidation': 0.0, 
+
+u'joint_self': [[251.0, 276.0, 1.0], [253.0, 275.0, 1.0], [250.0, 274.0, 1.0], [259.0, 277.0, 1.0], [0.0, 0.0, 2.0], [259.0, 285.0, 1.0], [247.0, 284.0, 1.0], [257.0, 294.0, 1.0], [231.0, 291.0, 1.0], [239.0, 281.0, 1.0], [230.0, 282.0, 1.0], [239.0, 308.0, 1.0], [0.0, 0.0, 2.0], [227.0, 302.0, 1.0], [0.0, 0.0, 2.0], [217.0, 322.0, 1.0], [0.0, 0.0, 2.0]], 
+u'joint_others': [[158.0, 270.0, 0.0], [160.0, 269.0, 1.0], [157.0, 269.0, 0.0], [167.0, 270.0, 1.0], [0.0, 0.0, 2.0], [166.0, 279.0, 1.0], [159.0, 277.0, 1.0], [151.0, 287.0, 1.0], [0.0, 0.0, 2.0], [0.0, 0.0, 2.0], [0.0, 0.0, 2.0], [158.0, 304.0, 1.0], [152.0, 302.0, 1.0], [142.0, 296.0, 1.0], [0.0, 0.0, 2.0], [132.0, 319.0, 1.0], [0.0, 0.0, 2.0]], 
+
+u'scale_provided': 0.198, 
+u'scale_provided_other': 0.171, 
+
+u'img_width': 381.0, 
+u'img_height': 500.0, 
+
+u'bbox': [203.39, 260.43, 65.69, 73.04], 
+u'bbox_other': [118.43, 261.32, 56.91, 62.93], 
+
+u'numOtherPeople': 1.0, 
+u'image_id': 49.0, 
+u'people_index': 1.0, 
+u'annolist_index': 2.0, 
+
+u'objpos': [236.235, 296.95]}
+u'objpos_other': [146.885, 292.785], 
+
+u'dataset': u'COCO', 
+u'img_paths': u'train2014/COCO_train2014_000000000049.jpg', 
+
