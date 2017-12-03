@@ -17,9 +17,9 @@ stepsize: 136106 #68053
 # Display every 100 iterations
 display: 20
 # The maximum number of iterations
-max_iter: 100000
+max_iter: 440000
 # snapshot intermediate results
 snapshot: 10000
-snapshot_prefix: "/home/cgangee/code/Realtime_Multi-Person_Pose_Estimation/training/aichal/model"
+snapshot_prefix: "/home/gchen/aichal/"
 # solver mode: CPU or GPU
 solver_mode: GPU

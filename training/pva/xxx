@@ -1,0 +1,162 @@
+1,5c1,78
+< input: "image"
+< input_dim: 1
+< input_dim: 3
+< input_dim: 512
+< input_dim: 512
+---
+> layer {
+>   name: "data"
+>   type: "CPMData"
+>   top: "data"
+>   top: "label"
+>   data_param {
+>     source: "/home/cgangee/code/Realtime_Multi-Person_Pose_Estimation/training/dataset/aichal/lmdb"
+>     batch_size: 2
+>     backend: LMDB
+>   }
+>   cpm_transform_param {
+>     stride: 8
+>     max_rotate_degree: 40.0
+>     visualize: false
+>     crop_size_x: 384
+>     crop_size_y: 384
+>     scale_prob: 1.0
+>     scale_min: 1.0
+>     scale_max: 1.5
+>     target_dist: 0.600000023842
+>     center_perterb_max: 40.0
+>     do_clahe: false
+>     num_parts: 40
+>     np_in_lmdb: 14
+>   }
+> }
+> layer {
+>   name: "vec_weight"
+>   type: "Slice"
+>   bottom: "label"
+>   top: "vec_weight"
+>   top: "heat_weight"
+>   top: "vec_temp"
+>   top: "heat_temp"
+>   slice_param {
+>     slice_point: 26
+>     slice_point: 41
+>     slice_point: 67
+>     axis: 1
+>   }
+> }
+> layer {
+>   name: "label_vec"
+>   type: "Eltwise"
+>   bottom: "vec_weight"
+>   bottom: "vec_temp"
+>   top: "label_vec"
+>   eltwise_param {
+>     operation: PROD
+>   }
+> }
+> layer {
+>   name: "label_heat"
+>   type: "Eltwise"
+>   bottom: "heat_weight"
+>   bottom: "heat_temp"
+>   top: "label_heat"
+>   eltwise_param {
+>     operation: PROD
+>   }
+> }
+> layer {
+>   name: "image"
+>   type: "Slice"
+>   bottom: "data"
+>   top: "image"
+>   top: "center_map"
+>   slice_param {
+>     slice_point: 3
+>     axis: 1
+>   }
+> }
+> layer {
+>   name: "silence2"
+>   type: "Silence"
+>   bottom: "center_map"
+> }
+> 
+6243a6317,6334
+> layer {
+>   name: "weight/stage1/L1"
+>   type: "Eltwise"
+>   bottom: "output/stage1/L1"
+>   bottom: "vec_weight"
+>   top: "weight/stage1/L1"
+>   eltwise_param {
+>     operation: PROD
+>   }
+> }
+> layer {
+>   name: "loss/stage1/L1"
+>   type: "EuclideanLoss"
+>   bottom: "weight/stage1/L1"
+>   bottom: "label_vec"
+>   top: "loss/stage1/L1"
+>   loss_weight: 1.0
+> }
+6271a6363,6380
+> layer {
+>   name: "weight/stage1/L2"
+>   type: "Eltwise"
+>   bottom: "output/stage1/L2"
+>   bottom: "heat_weight"
+>   top: "weight/stage1/L2"
+>   eltwise_param {
+>     operation: PROD
+>   }
+> }
+> layer {
+>   name: "loss/stage1/L2"
+>   type: "EuclideanLoss"
+>   bottom: "weight/stage1/L2"
+>   bottom: "label_heat"
+>   top: "loss/stage1/L2"
+>   loss_weight: 1.0
+> }
+10668a10778,10796
+> layer {
+>   name: "weight/stage2/L1"
+>   type: "Eltwise"
+>   bottom: "output/stage2/L1"
+>   bottom: "vec_weight"
+>   top: "weight/stage2/L1"
+>   eltwise_param {
+>     operation: PROD
+>   }
+> }
+> layer {
+>   name: "loss/stage2/L1"
+>   type: "EuclideanLoss"
+>   bottom: "weight/stage2/L1"
+>   bottom: "label_vec"
+>   top: "loss/stage2/L1"
+>   loss_weight: 1.0
+> }
+> 
+10694a10823,10840
+> }
+> layer {
+>   name: "weight/stage2/L2"
+>   type: "Eltwise"
+>   bottom: "output/stage2/L2"
+>   bottom: "heat_weight"
+>   top: "weight/stage2/L2"
+>   eltwise_param {
+>     operation: PROD
+>   }
+> }
+> layer {
+>   name: "loss/stage2/L2"
+>   type: "EuclideanLoss"
+>   bottom: "weight/stage2/L2"
+>   bottom: "label_heat"
+>   top: "loss/stage2/L2"
+>   loss_weight: 1.0

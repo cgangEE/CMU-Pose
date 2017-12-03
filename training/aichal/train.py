@@ -38,6 +38,7 @@ def trainModel():
 
     for i in range(1):
         solver.step(1)
+        continue
 
         img = net.blobs['image'].data
         img = img[0].transpose((1, 2, 0))

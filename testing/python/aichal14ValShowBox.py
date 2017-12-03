@@ -70,7 +70,12 @@ def showImage(im, kps, gt_boxes, gt_kps):
     line = [[13, 14], [14, 4], [4, 5], [5, 6], [14, 1], [1, 2], [2, 3], \
             [14, 10], [10, 11], [11, 12], [14, 7], [7, 8], [8, 9]]
 
-    c = ['b', 'g', 'r', 'c', 'm', 'y', 'k', 'w']
+
+    b = 'b'
+    r = 'r'
+    g = 'g'
+    c = [b, b, b, r, r, r, b, b, b, r, r, r, g, g]
+    c2 = [g, r, r, r, b, b, b, r, r, r, b, b, b]
 
     for i, kp in enumerate(kps):
 
@@ -81,14 +86,14 @@ def showImage(im, kps, gt_boxes, gt_kps):
             ax.add_patch(
                     plt.Circle((x, y), 3,
                           fill=True,
-                          color = c[j % 8], 
+                          color = c[j], 
                           linewidth=2.0)
                 )
             ax.text(x, y - 2, '{:3f}'.format(oks_full[i,j]), 
                     bbox=dict(facecolor='blue', alpha=0.2),
                     fontsize=8, color='white')
 
-        for l in line:
+        for j, l in enumerate(line):
             i0 = l[0] - 1
             p0 = kp[i0 * 3 : (i0 + 1) * 3] 
 
@@ -101,7 +106,7 @@ def showImage(im, kps, gt_boxes, gt_kps):
             ax.add_patch(
                     plt.Arrow(p0[0], p0[1], 
                     float(p1[0]) - p0[0], float(p1[1]) - p0[1], 
-                    color = c[i])
+                    color = c2[j])
                     )
 
 
@@ -115,7 +120,7 @@ def showBox():
         dataGt = json.load(fG)
 
     for i, line in enumerate(data):
-#        if i % 1000 == 0:
+        if i % 1000 == 0:
             imname = line['image_id']
             im = cv2.imread(os.path.join('data/aichal', 'val', imname + '.jpg'))
             kps = line['keypoint_annotations'].values()
@@ -130,8 +135,6 @@ def showBox():
             showImage(im, kps, gt_boxes, gt_kps)
             plt.savefig(str(i)+"AiChal", bbox_inches='tight', pad_inches=0)
 
-            if i == 10:
-                exit(0)
 
 if __name__ == '__main__':
     showBox()

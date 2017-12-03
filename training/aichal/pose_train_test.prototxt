@@ -4,7 +4,7 @@ layer {
   top: "data"
   top: "label"
   data_param {
-    source: "/home/cgangee/code/Realtime_Multi-Person_Pose_Estimation/training/dataset/aichal/lmdb"
+    source: "/home/gchen/code/Realtime_Multi-Person_Pose_Estimation/training/dataset/aichal/lmdb"
     batch_size: 2
     backend: LMDB
   }
@@ -15,8 +15,8 @@ layer {
     crop_size_x: 368
     crop_size_y: 368
     scale_prob: 1.0
-    scale_min: 1.0
-    scale_max: 1.5
+    scale_min: 0.5
+    scale_max: 1.10000002384
     target_dist: 0.600000023842
     center_perterb_max: 40.0
     do_clahe: false

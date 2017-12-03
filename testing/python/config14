@@ -26,7 +26,7 @@ bbox_ratio = 0.25
 ## don't edit this part
 
 [[1]]
-caffemodel = '../../training/aichal/model/model_iter_100000.caffemodel'
+caffemodel = '/home/cgangee/121/aichal/_iter_100000.caffemodel'
 deployFile = 'pose14_deploy.prototxt'
 description = 'COCO Pose56 Two-level Linevec'
 boxsize = 368

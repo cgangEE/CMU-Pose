@@ -72,7 +72,7 @@ def drawProbCurve(results):
     for result in results:
         subset = result['subset']
         for sub in subset:
-            prob.append(sub[-2])# / sub[-1])
+            prob.append(sub[-2] / sub[-1])
 
     plt.hist(prob, bins=30)
     plt.xlabel('score')
@@ -113,7 +113,7 @@ def main(thresh):
 
         idx = 0
         for sub in subset:
-            score = sub[-2] #/ sub[-1]
+            score = sub[-2] / sub[-1]
             if score >= thresh:
                 idx += 1
 
@@ -166,7 +166,7 @@ def main(thresh):
 
 
 if __name__ == '__main__':
-#    for thresh in [0.6, 0.8, 1.0, 1.2, 1.4, 1.6]:
-    for thresh in [5, 10, 15, 20, 25]:
+    for thresh in [0.6, 0.8, 1.0, 1.2, 1.4, 1.6]:
+#    for thresh in [5, 10, 15, 20, 25]:
         main(thresh)
 

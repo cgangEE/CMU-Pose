@@ -47,7 +47,7 @@ f3.set_size_inches((20, 10))
 for m in range(len(multiplier)):
     scale = multiplier[m]
     imageToTest = cv.resize(oriImg, (0,0), fx=scale, fy=scale, interpolation=cv.INTER_CUBIC)
-    imageToTest_padded, pad = util.padRightDownCorner(imageToTest, model['stride'], model['padValue'])
+    imageToTest_padded, pad = util.padRightDownCorner(imageToTest, 32, model['padValue'])
     print imageToTest_padded.shape
     
     axarr[m].imshow(imageToTest_padded[:,:,[2,1,0]])
